@@ -19,4 +19,8 @@ This repo is an extract out version of the course Go In 3 Hours as I am trying t
 ## More Material
 1. [An Introduction To programming In Go](https://www.golang-book.com/books/intro)
 2. [Golang Tutorial – Learn Go Programming Language](https://www.geeksforgeeks.org/golang-tutorial-learn-go-programming-language/)
+3. Go Tour
+    1. https://go.dev/tour/welcome/1
+    2. https://go.dev/tour/list
+
 
