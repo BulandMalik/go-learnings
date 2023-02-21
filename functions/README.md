@@ -277,6 +277,12 @@ factorial calls itself, which is what makes this function recursive. In order to
 ## Pointers
 If you've coded in C or C++, pointers are necessary and dangerous things. Developers need to track that usage carefully, and if they don't memory will leak and programs will crash. Pointers and Go there are a lot less scary because many of the scary things that they can do in C and C++ just aren't possible in Go. Go has its own array and string type so you don't use pointer to simulate them. This helps eliminate the buffer overflow errors that can happen in C programs. Go automatically tracks all pointers created in a program, uses garbage collection to take care of de allocating them and there are no more uses. This eliminates both memory leaks and accidental use F and D allocation that can cause random crashes. And because Go is strongly typed it also doesn't let you allocate a bunch of memory and then treat it as any type you feel like, or let you cast one pointer type to another. In general pointers and Go are far safer than pointers in C or C++.
 
+In Go a pointer is represented using the * (asterisk) character followed by the type of the stored value. In the zero function xPtr is a pointer to an int.
+
+`*` is also used to `dereference` pointer variables. Dereferencing a pointer gives us access to the value the pointer points to. When we write `*xPtr = 0` we are saying `“store the int 0 in the memory location xPtr refers to”. If we try xPtr = 0 instead we will get a compiler error because xPtr is not an int it's a *int, which can only be given another *int.
+
+Finally we use the & operator to find the address of a variable. &x returns a *int (pointer to an int) because x is an int. This is what allows us to modify the original variable. &x in main and xPtr in zero refer to the same memory location.
+
 ```
 package main
 
@@ -327,7 +333,7 @@ func example2() {
 	* First we use builtin new function to create a pointer for the type passed in.
 	* Second, new doesn't just make be a pointer it also allocates memory as well.
 	*/
-	b := new(int)
+	b := new(int) //new takes a type as an argument, allocates enough memory to fit a value of that type and returns a pointer to it.
 
 	fmt.Println(b) //memory location
 	fmt.Println(*b) //0 as the default int type value
